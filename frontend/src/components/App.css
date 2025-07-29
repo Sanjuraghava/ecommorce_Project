@@ -1,0 +1,30 @@
+.app-container {
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.main-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.product-list {
+  flex: 2;
+}
+
+.grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 150px;
+}
+
+.cart {
+  flex: 1;
+  border: 1px solid #aaa;
+  padding: 1rem;
+}
