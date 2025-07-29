@@ -1,15 +1,16 @@
-# Dockerfile (for frontend React app)
-FROM node:18-alpine
+# Stage 1: Build React app
+FROM node:18-alpine as build
 
 WORKDIR /app
-
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
-
 COPY . .
-
 RUN npm run build
 
-EXPOSE 3000
-CMD ["npx", "serve", "-s", "build"]
+# Stage 2: Serve the app
+FROM nginx:alpine
 
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
