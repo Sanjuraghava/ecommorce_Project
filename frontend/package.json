@@ -1,0 +1,5 @@
+{
+  "name": "frontend",
+  "proxy": "http://backend:5000",
+  ...
+}
