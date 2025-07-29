@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone Repository') {
       steps {
-        git url: 'https://github.com/Sanjuraghava/ecommerce-project.git', branch: 'main'
+        git credentialsId: 'GitHub-PAT', git url: 'https://github.com/Sanjuraghava/ecommerce-project.git', branch: 'main'
       }
     }
 
