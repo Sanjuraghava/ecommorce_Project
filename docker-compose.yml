@@ -1,7 +1,17 @@
-frontend:
-  build:
-    context: ./frontend
-  ports:
-    - "3000:80"  # frontend is served from Nginx (port 80 inside container)
-  depends_on:
-    - backend
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"  # Serve React app from Nginx (80 inside container → 3000 on host)
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"  # Flask app
+
