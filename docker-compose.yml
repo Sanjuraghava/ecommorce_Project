@@ -1,13 +1,7 @@
-version: '3'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "5000:5000"
-  
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
+frontend:
+  build:
+    context: ./frontend
+  ports:
+    - "3000:80"  # frontend is served from Nginx (port 80 inside container)
+  depends_on:
+    - backend
